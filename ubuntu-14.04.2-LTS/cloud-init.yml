@@ -1,0 +1,20 @@
+#cloud-config
+
+#needs to replace <user>
+#needs to replace <ssh-key>
+#needs to replace <ssh-port>
+
+users:
+  - name: <user>
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-rsa <ssh-key>
+      - ssh-rsa <ssh-key>
+runcmd:
+  - sed -i -e '/^Port/s/^.*$/Port <port>/' /etc/ssh/sshd_config
+  - sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config
+  - sed -i -e '/^#PasswordAuthentication/s/^.*$/PasswordAuthentication no/' /etc/ssh/sshd_config
+  - sed -i -e '$aAllowUsers <user>' /etc/ssh/sshd_config  
+  - restart ssh
