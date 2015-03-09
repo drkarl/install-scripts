@@ -2,5 +2,5 @@
 
 Execute using
 ```bash
-wget -O - https://raw.githubusercontent.com/drkarl/install-scripts/ubuntu-14.04.2-LTS/master/post_install_script_essentials.sh | bash
+wget -O - https://raw.githubusercontent.com/drkarl/install-scripts/master/ubuntu-14.04.2-LTS/post_install_script_essentials.sh | bash
 ```
