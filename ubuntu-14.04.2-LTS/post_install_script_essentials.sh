@@ -18,7 +18,7 @@ sudo chmod +x /usr/bin/apt-fast
 sudo cp completions/bash/apt-fast /etc/bash_completion.d/
      
 ## Add Node PPA
-curl -sL https://deb.nodesource.com/setup | sudo bash -
+sudo curl -sL https://deb.nodesource.com/setup | sudo bash -
 
 ##
 #Update repos and upgrade software
@@ -35,15 +35,6 @@ echo "=                                     ="
 echo "========[INSTALLING essentials]========"
 echo "=                                     ="
 sudo apt-fast install -y --no-install-recommends build-essential fontconfig fonts-inconsolata unzip p7zip-full ack-grep htop tmux molly-guard etckeeper
-
-##
-##Setup git
-##
-echo "=                                     ="
-echo "==============[Git setup]=============="
-echo "=                                     ="
-git config --global user.name "Carlos Manias"
-git config --global user.email karlmaxxx@gmail.com
 
 ##
 ##etc-keeper
@@ -71,21 +62,9 @@ echo "===========[INSTALLING zsh]==========="
 echo "=                                     ="
 sudo apt-get install -y zsh
 ##apt-fast completions for zsh
-cp completions/zsh/_apt-fast /usr/share/zsh/functions/Completion/Debian/
-chown root:root /usr/share/zsh/functions/Completion/Debian/_apt-fast
+sudo cp completions/zsh/_apt-fast /usr/share/zsh/functions/Completion/Debian/
+sudo chown root:root /usr/share/zsh/functions/Completion/Debian/_apt-fast
 source /usr/share/zsh/functions/Completion/Debian/_apt-fast
-##Setup Prezto
-echo "=                                     ="
-echo "==========[INSTALLING Prezto]=========="
-echo "=                                     ="
-git clone --recursive https://github.com/ravishi/prezto.git "$HOME/.zprezto"
-
-shopt -s extglob
-for rcfile in $HOME/.zprezto/runcoms/!(README.md); do
-  ln -s "$rcfile" "$HOME/.$(basename $rcfile)"
-done
-
-sudo usermod -s /bin/zsh "$(whoami)"
 
 ## 
 ## Setup VIM
@@ -95,16 +74,6 @@ echo "============[INSTALLING Vim]==========="
 echo "=                                     ="
 sudo apt-fast install -y vim
 sudo update-alternatives --set editor /usr/bin/vim.basic
-
-# powerline fancy symbols
-echo "=                                     ="
-echo "=====[Installing Powerline symbols]===="
-echo "=                                     ="
-mkdir -p "$HOME/.fonts/" "$HOME/.config/fontconfig/conf.d/"
-wget -P "$HOME/.fonts/" https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
-sudo fc-cache -vf "$HOME/.fonts"
-wget -P "$HOME/.config/fontconfig/conf.d/" https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
-
 
 # Better font rendering (aka Infinality)
 # source: http://www.webupd8.org/2013/06/better-font-rendering-in-linux-with.html
@@ -120,26 +89,6 @@ echo "=                                     ="
 echo "===========[DISABLING apport]=========="
 echo "=                                     ="
 sudo su -c 'echo "enabled=0" > /etc/default/apport'
-
-# -----------------------------------------------------------------------------
-# => Get dotfiles
-# -----------------------------------------------------------------------------
-echo "=                                     ="
-echo "=========[Retrieving dotfiles]========="
-echo "=                                     ="
-echo '=> Get dotfiles (http://github.com/drkarl/dotfiles)'
-# Create a tmp folder with random name
-dotfiles_path="`(mktemp -d)`"
- 
-# Clone the repository recursively
-git clone --recursive https://github.com/drkarl/dotfiles.git "$dotfiles_path"
-cd "$dotfiles_path"
- 
-# Copy all dotfiles except .git/ and .gitmodules
-cp -r `ls -d .??* | egrep -v '(.git$|.gitmodules)'` $HOME
-
-# symlink vimrc
-ln -s "$HOME/.vim/vimrc" "$HOME/.vimrc"
 
 ##
 ## Create and enable swap file
@@ -202,3 +151,5 @@ echo "=                                     ="
 echo "==============[CLEANUP]=============="
 echo "=                                     ="
 sudo apt-get autoremove -y
+
+echo "\n\nPost-installation script complete!!"
