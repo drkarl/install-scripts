@@ -3,6 +3,16 @@
 # Ubuntu post-install script
 ##
 
+##
+##etc-keeper
+##
+echo "=                                     ="
+echo "=========[INSTALLING etckeeper]========="
+echo "=                                     ="
+sudo apt-get install -y git etckeeper
+perl -pi -e 's/VCS="bzr"/VCS="git"/' /etc/etckeeper/etckeeper.conf
+etckeeper init
+etckeeper commit "Initial commit."
 
 ##
 ##apt-fast
@@ -10,7 +20,7 @@
 echo "=                                     ="
 echo "=========[INSTALLING apt-fast]========="
 echo "=                                     ="
-sudo apt-get install -y git aria2
+sudo apt-get install -y aria2
 git clone https://github.com/ilikenwf/apt-fast.git
 cd apt-fast
 sudo cp apt-fast /usr/bin/
@@ -34,17 +44,7 @@ sudo apt-fast update -y && sudo apt-fast upgrade -y
 echo "=                                     ="
 echo "========[INSTALLING essentials]========"
 echo "=                                     ="
-sudo apt-fast install -y --no-install-recommends build-essential fontconfig fonts-inconsolata unzip p7zip-full ack-grep htop tmux molly-guard etckeeper
-
-##
-##etc-keeper
-##
-echo "=                                     ="
-echo "=========[INSTALLING etckeeper]========="
-echo "=                                     ="
-perl -pi -e 's/VCS="bzr"/VCS="git"/' /etc/etckeeper/etckeeper.conf
-etckeeper init
-etckeeper commit "Initial commit."
+sudo apt-fast install -y --no-install-recommends build-essential fontconfig fonts-inconsolata unzip p7zip-full ack-grep htop tmux molly-guard 
 
 ##
 ##Install NodeJS
@@ -62,7 +62,7 @@ echo "===========[INSTALLING zsh]==========="
 echo "=                                     ="
 sudo apt-get install -y zsh
 ##apt-fast completions for zsh
-sudo cp completions/zsh/_apt-fast /usr/share/zsh/functions/Completion/Debian/
+sudo cp ~/apt-fast/completions/zsh/_apt-fast /usr/share/zsh/functions/Completion/Debian/
 sudo chown root:root /usr/share/zsh/functions/Completion/Debian/_apt-fast
 source /usr/share/zsh/functions/Completion/Debian/_apt-fast
 
