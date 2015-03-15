@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #Install Task Warrior server
+#replace drkarl by the user
 
 apt-fast install -y git cmake gnutls-bin libgnutls-dev uuid-dev zip
 
@@ -19,6 +20,8 @@ cd test && sudo make && sudo ./run_all
 ~/.profile 
 
 echo "export TASKDDATA=/var/taskd" >> ~/.zshrc
+
+export TASKDDATA=/var/taskd
 
 sudo mkdir -p $TASKDDATA
 
@@ -45,7 +48,7 @@ taskd config --force client.allow '^task [2-9],^taskd,^libtaskd,^Mirakel [1-9]'
 
 #Choose one of the following lines, depending if ip or hostname
 taskd config --force server `/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'`:53589
-#taskd config --force server `hostname`:53589
+taskd config --force server `hostname`:53589
 
 #Mirakel
 #wget https://raw.githubusercontent.com/MirakelX/mirakel-scripts/master/add_user.sh
