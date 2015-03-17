@@ -53,7 +53,19 @@ sudo apt-fast update -y && sudo apt-fast upgrade -y
 echo -e "\033[1;33m=                                 =\033[0m"
 echo -e "\033[1;33m======[INSTALLING essentials]======\033[0m"
 echo -e "\033[1;33m=                                 =\033[0m"
-sudo apt-fast install -y --no-install-recommends build-essential fontconfig fonts-inconsolata unzip p7zip-full ack-grep htop tmux molly-guard python-dev 
+sudo apt-fast install -y --no-install-recommends build-essential fontconfig fonts-inconsolata unzip p7zip-full ack-grep htop molly-guard python-dev 
+
+##
+##Tmux
+##
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=========[INSTALLING Tmux]=========\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
+sudo apt-fast update
+sudo apt-fast install -y python-software-properties software-properties-common
+sudo add-apt-repository -y ppa:pi-rho/dev
+sudo apt-fast update
+sudo apt-fast install -y tmux=1.9a-1~ppa1~t
 
 ##
 ##Install NodeJS

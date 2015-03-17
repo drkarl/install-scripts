@@ -58,8 +58,12 @@ cp -r `ls -d .??* | egrep -v '(.git$|.gitmodules)'` $HOME
 # symlink vimrc
 ln -s "$HOME/.vim/vimrc" "$HOME/.vimrc"
 
+## TMUX
+# Install Tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+tmux source-file ~/.tmux.conf
+
 rm -rf "$dotfiles_path"
-rm -rf apt-fast
-rm -rf install-scripts
 
 echo -e "\033[1;32mUser configuration complete!!\033[0m"
