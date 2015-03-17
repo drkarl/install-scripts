@@ -22,3 +22,4 @@ sudo sed -i -e '$aAllowUsers `whoami`' /etc/ssh/sshd_config
 
 sudo restart ssh
 echo -e "\033[33;32mRoot can't login anymore, and only keys, no passwords, can be used!\033[0m"
+echo -e "\033[33;31mSSH with the user before logging out of this session to make sure you don't lock yourself out!\033[0m"
