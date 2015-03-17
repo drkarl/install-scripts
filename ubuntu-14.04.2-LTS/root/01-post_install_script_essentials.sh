@@ -3,13 +3,13 @@
 # Ubuntu post-install script
 ##
 
-echo -e "\033[33;32mStarting post-installation script\033[0m"
+echo -e "\033[1;32mStarting post-installation script\033[0m"
 ##
 ##etc-keeper
 ##
-echo "=                                     ="
-echo "=========[INSTALLING etckeeper]========="
-echo "=                                     ="
+echo -e "\033[1;33m=                                     =\033[0m"
+echo -e "\033[1;33m=========[INSTALLING etckeeper]=========\033[0m"
+echo -e "\033[1;33m=                                     =\033[0m"
 sudo apt-get install -y git make
 # We don't use apt-get install etckeeper because defaults to bazaar
 # Version in github defaults to git
@@ -25,12 +25,13 @@ rm -rf etckeeper
 ##apt-fast
 ##
 ## From now on, all other scripts assume apt-fast is installed
-echo "=                                     ="
-echo "=========[INSTALLING apt-fast]========="
-echo "=                                     ="
+echo -e "\033[1;33m=                                     =\033[0m"
+echo -e "\033[1;33m=========[INSTALLING apt-fast]=========\033[0m"
+echo -e "\033[1;33m=                                     =\033[0m"
 sudo apt-get install -y aria2
-git clone https://github.com/ilikenwf/apt-fast.git /root
-cd /root/apt-fast
+cd ~/
+git clone https://github.com/ilikenwf/apt-fast.git 
+cd apt-fast
 sudo cp apt-fast /usr/bin/
 sudo chmod +x /usr/bin/apt-fast
 sudo cp completions/bash/apt-fast /etc/bash_completion.d/
@@ -41,57 +42,57 @@ sudo curl -sL https://deb.nodesource.com/setup | sudo bash -
 ##
 #Update repos and upgrade software
 ##
-echo "=                                  ="
-echo "=======[Update and Upgrade]========"
-echo "=                                  ="
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=======[Update and Upgrade]========\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-fast update -y && sudo apt-fast upgrade -y
 
 ##
 ##Essentials
 ##
-echo "=                                 ="
-echo "======[INSTALLING essentials]======"
-echo "=                                 ="
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m======[INSTALLING essentials]======\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-fast install -y --no-install-recommends build-essential fontconfig fonts-inconsolata unzip p7zip-full ack-grep htop tmux molly-guard 
 
 ##
 ##Install NodeJS
 ##
-echo "=                                 ="
-echo "========[INSTALLING NodeJS]========"
-echo "=                                 ="
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m========[INSTALLING NodeJS]========\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-fast install -y nodejs
 
 ## 
 ## Setup VIM
 ##
-echo "=                                 ="
-echo "==========[INSTALLING Vim]========="
-echo "=                                 ="
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m==========[INSTALLING Vim]=========\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-fast install -y vim
 sudo update-alternatives --set editor /usr/bin/vim.basic
 
 # Better font rendering (aka Infinality)
 # source: http://www.webupd8.org/2013/06/better-font-rendering-in-linux-with.html
-echo "=                                 ="
-echo "======[INSTALLING Infinality]======"
-echo "=                                 ="
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[33;33m======[INSTALLING Infinality]======\033[0m"
+echo -e "\033[33;33m=                                 =\033[0m"
 sudo add-apt-repository -y ppa:no1wantdthisname/ppa \
     && sudo apt-fast update \
     && sudo apt-fast install -y fontconfig-infinality
 
 # Turn off apport
-echo "=                                 ="
-echo "=========[DISABLING apport]========"
-echo "=                                 ="
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=========[DISABLING apport]========\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo su -c 'echo "enabled=0" > /etc/default/apport'
 
 ##
 ## Create and enable swap file
 ##
-echo "=                                   ="
-echo "====[Creating/enabling SWAP file]===="
-echo "=                                   ="
+echo -e "\033[1;33m=                                   =\033[0m"
+echo -e "\033[1;33m====[Creating/enabling SWAP file]====\033[0m"
+echo -e "\033[1;33m=                                   =\033[0m"
 sudo fallocate -l 4G /swapfile
 sudo chown root:root /swapfile 
 sudo chmod 600 /swapfile
@@ -104,18 +105,18 @@ echo vm.swappiness = 10 | sudo tee -a /etc/sysctl.conf
 ##
 ##Install nginx
 ##
-echo "=                                 ="
-echo "=========[INSTALLING nginx]========"
-echo "=                                 ="
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=========[INSTALLING nginx]========\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-fast install -y nginx
 sudo service nginx stop
 
 ##
 ##UFW
 ##
-echo "=                                ="
-echo "=========[INSTALLING ufw]========="
-echo "=                                ="
+echo -e "\033[1;33m=                                =\033[0m"
+echo -e "\033[1;33m=========[INSTALLING ufw]=========\033[0m"
+echo -e "\033[1;33m=                                =\033[0m"
 sudo apt-fast install -y ufw
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
@@ -125,9 +126,9 @@ sudo ufw --force enable
 ##
 ##fail2ban
 ##
-echo "=                                 ="
-echo "=======[INSTALLING fail2ban]======="
-echo "=                                 ="
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=======[INSTALLING fail2ban]=======\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-fast install -y fail2ban
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 sudo service fail2ban restart
@@ -135,17 +136,17 @@ sudo service fail2ban restart
 ##
 ##Dist-upgrade
 ##
-echo "=                                 ="
-echo "===========[dist-upgrade]=========="
-echo "=                                 ="
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m===========[dist-upgrade]==========\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-fast update && sudo apt-fast dist-upgrade -y
 
 ##
 #Cleanup
 ##
-echo "=                               ="
-echo "============[CLEANUP]============"
-echo "=                               ="
+echo -e "\033[1;33m=                               =\033[0m"
+echo -e "\033[1;33m============[CLEANUP]============\033[0m"
+echo -e "\033[1;33m=                               =\033[0m"
 sudo apt-get autoremove -y
 
-echo -e "\033[33;32mPost-installation script complete!!\033[0m"
+echo -e "\033[1;32mPost-installation script complete!!\033[0m"
