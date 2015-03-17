@@ -4,6 +4,21 @@ echo "==================================="
 echo "==========[USER SPECIFIC]=========="
 echo "==================================="
 
+## Setup VIM as default editor
+sudo update-alternatives --set editor /usr/bin/vim.basic
+
+##
+## ZSH
+##
+echo "=                                 ="
+echo "=========[INSTALLING zsh]========="
+echo "=                                 ="
+sudo apt-get install -y zsh
+##apt-fast completions for zsh
+sudo cp /home/root/apt-fast/completions/zsh/_apt-fast /usr/share/zsh/functions/Completion/Debian/
+sudo chown root:root /usr/share/zsh/functions/Completion/Debian/_apt-fast
+source /usr/share/zsh/functions/Completion/Debian/_apt-fast
+
 ##Setup Prezto
 echo "=                                     ="
 echo "==========[INSTALLING Prezto]=========="
@@ -44,4 +59,4 @@ cp -r `ls -d .??* | egrep -v '(.git$|.gitmodules)'` $HOME
 # symlink vimrc
 ln -s "$HOME/.vim/vimrc" "$HOME/.vimrc"
 
-echo "\n\nUser configuration complete!!"
+echo "User configuration complete!!"

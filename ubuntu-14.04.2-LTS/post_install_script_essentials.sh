@@ -60,18 +60,6 @@ echo "========[INSTALLING NodeJS]========"
 echo "=                                 ="
 sudo apt-fast install -y nodejs
 
-##
-## ZSH
-##
-echo "=                                 ="
-echo "=========[INSTALLING zsh]========="
-echo "=                                 ="
-sudo apt-get install -y zsh
-##apt-fast completions for zsh
-sudo cp ~/apt-fast/completions/zsh/_apt-fast /usr/share/zsh/functions/Completion/Debian/
-sudo chown root:root /usr/share/zsh/functions/Completion/Debian/_apt-fast
-source /usr/share/zsh/functions/Completion/Debian/_apt-fast
-
 ## 
 ## Setup VIM
 ##
