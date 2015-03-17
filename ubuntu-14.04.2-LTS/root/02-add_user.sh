@@ -34,4 +34,5 @@ usermod -a -G sudo ${username}
 
 cp -R /root/install-scripts "/home/${username}/" 
 cp -R /root/apt-fast "/home/${username}/" 
+chown -R $username:$username "/home/${username}/" 
 echo -e "\033[1;32mUser ${username} created, added to sudoers and keys setup\033[0m"
