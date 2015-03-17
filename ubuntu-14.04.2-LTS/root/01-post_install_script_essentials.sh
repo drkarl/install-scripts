@@ -75,8 +75,8 @@ sudo update-alternatives --set editor /usr/bin/vim.basic
 # Better font rendering (aka Infinality)
 # source: http://www.webupd8.org/2013/06/better-font-rendering-in-linux-with.html
 echo -e "\033[1;33m=                                 =\033[0m"
-echo -e "\033[33;33m======[INSTALLING Infinality]======\033[0m"
-echo -e "\033[33;33m=                                 =\033[0m"
+echo -e "\033[1;33m======[INSTALLING Infinality]======\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo add-apt-repository -y ppa:no1wantdthisname/ppa \
     && sudo apt-fast update \
     && sudo apt-fast install -y fontconfig-infinality
