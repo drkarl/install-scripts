@@ -53,7 +53,7 @@ sudo apt-fast update -y && sudo apt-fast upgrade -y
 echo -e "\033[1;33m=                                 =\033[0m"
 echo -e "\033[1;33m======[INSTALLING essentials]======\033[0m"
 echo -e "\033[1;33m=                                 =\033[0m"
-sudo apt-fast install -y --no-install-recommends build-essential fontconfig fonts-inconsolata unzip p7zip-full ack-grep htop tmux molly-guard 
+sudo apt-fast install -y --no-install-recommends build-essential fontconfig fonts-inconsolata unzip p7zip-full ack-grep htop tmux molly-guard python-dev 
 
 ##
 ##Install NodeJS
@@ -132,6 +132,14 @@ echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-fast install -y fail2ban
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 sudo service fail2ban restart
+
+##
+##stormssh
+##
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=======[INSTALLING StormSSH]=======\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
+sudo pip install stormssh
  
 ##
 ##Dist-upgrade
