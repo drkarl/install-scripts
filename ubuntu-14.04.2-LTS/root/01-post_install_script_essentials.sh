@@ -3,6 +3,7 @@
 # Ubuntu post-install script
 ##
 
+echo -e "\033[33;32mStarting post-installation script\033[0m"
 ##
 ##etc-keeper
 ##
@@ -23,12 +24,13 @@ rm -rf etckeeper
 ##
 ##apt-fast
 ##
+## From now on, all other scripts assume apt-fast is installed
 echo "=                                     ="
 echo "=========[INSTALLING apt-fast]========="
 echo "=                                     ="
 sudo apt-get install -y aria2
-git clone https://github.com/ilikenwf/apt-fast.git
-cd apt-fast
+git clone https://github.com/ilikenwf/apt-fast.git /root
+cd /root/apt-fast
 sudo cp apt-fast /usr/bin/
 sudo chmod +x /usr/bin/apt-fast
 sudo cp completions/bash/apt-fast /etc/bash_completion.d/
@@ -146,4 +148,4 @@ echo "============[CLEANUP]============"
 echo "=                               ="
 sudo apt-get autoremove -y
 
-echo "Post-installation script complete!!"
+echo -e "\033[33;32mPost-installation script complete!!\033[0m"

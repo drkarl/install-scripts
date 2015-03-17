@@ -14,8 +14,9 @@ echo "=                                 ="
 echo "=========[INSTALLING zsh]========="
 echo "=                                 ="
 sudo apt-get install -y zsh
+sudo usermod -s /bin/zsh "$(whoami)"
 ##apt-fast completions for zsh
-sudo cp /home/root/apt-fast/completions/zsh/_apt-fast /usr/share/zsh/functions/Completion/Debian/
+sudo cp ~/apt-fast/completions/zsh/_apt-fast /usr/share/zsh/functions/Completion/Debian/
 sudo chown root:root /usr/share/zsh/functions/Completion/Debian/_apt-fast
 source /usr/share/zsh/functions/Completion/Debian/_apt-fast
 
@@ -29,8 +30,6 @@ shopt -s extglob
 for rcfile in $HOME/.zprezto/runcoms/!(README.md); do
   ln -s "$rcfile" "$HOME/.$(basename $rcfile)"
 done
-
-sudo usermod -s /bin/zsh "$(whoami)"
 
 # powerline fancy symbols
 echo "=                                     ="
@@ -58,5 +57,9 @@ cp -r `ls -d .??* | egrep -v '(.git$|.gitmodules)'` $HOME
 
 # symlink vimrc
 ln -s "$HOME/.vim/vimrc" "$HOME/.vimrc"
+
+rm -rf "$dotfiles_path"
+rm -rf apt-fast
+rm -rf install-scripts
 
 echo "User configuration complete!!"
