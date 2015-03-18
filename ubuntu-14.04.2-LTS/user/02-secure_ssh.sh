@@ -28,6 +28,8 @@ sudo sed -i -e '$aAllowUsers '"$user"'' /etc/ssh/sshd_config
 # OPTIONAL - Change standard SSH port (22)
 # sudo sed -i -e '/^Port/s/^.*$/Port 2222/' /etc/ssh/sshd_config
 
+sudo rm -rf /root/.ssh/authorized_keys
+
 sudo restart ssh
 echo -e "\033[1;32mRoot can't login anymore, and only keys, no passwords, can be used!\033[0m"
 echo -e "\033[1;31mSSH with the user before logging out of this session to make sure you don't lock yourself out!\033[0m"
