@@ -68,4 +68,12 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 tmux source-file ~/.tmux.conf
 
+echo -e "\033[1;33m=                                     =\033[0m"
+echo -e "\033[1;33m============[Installing RVM]===========\033[0m"
+echo -e "\033[1;33m=                                     =\033[0m"
+sudo apt-add-repository -y ppa:rael-gc/rvm
+sudo apt-fast update
+sudo apt-fast install rvm
+echo -e "\031[1;32mYou need to logout and login again to install ruby!!\033[0m"
+
 echo -e "\033[1;32mUser configuration complete!!\033[0m"
