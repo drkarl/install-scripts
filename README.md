@@ -1,4 +1,4 @@
-# Post installation script for ubuntu
+# Post installation scripts for ubuntu
 
 - Execute first `ubuntu-14.04.2-LTS/root/00-run_all.sh` as root.
 The last part will add a user with sudo rights with the username you provide.
