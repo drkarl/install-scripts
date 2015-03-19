@@ -53,7 +53,7 @@ sudo apt-fast update -y && sudo apt-fast upgrade -y
 echo -e "\033[1;33m=                                 =\033[0m"
 echo -e "\033[1;33m======[INSTALLING essentials]======\033[0m"
 echo -e "\033[1;33m=                                 =\033[0m"
-sudo apt-fast install -y --no-install-recommends build-essential fontconfig fonts-inconsolata unzip p7zip-full ack-grep htop molly-guard python-dev 
+sudo apt-fast install -y build-essential cmake python-dev fontconfig fonts-inconsolata unzip p7zip-full ack-grep htop molly-guard iotop iftop
 
 ##
 ##Tmux
