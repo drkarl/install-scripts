@@ -1,15 +1,13 @@
 #!/bin/bash
-read -p "Enter username to install TaskWarrior server for: " username
+username=`whoami`
 
 #Install Task Warrior server
 
 apt-fast install -y git cmake gnutls-bin libgnutls-dev uuid-dev zip
 
-cd ~
-mkdir git
-cd git
-git clone https://git.tasktools.org/scm/tm/taskd
-cd taskd
+git clone https://git.tasktools.org/scm/tm/taskd ~/taskd
+cp add_user_Mirakel.sh ~/taskd/pki
+cd ~/taskd
 sudo cmake . && sudo make && sudo make install
 cd test && sudo make && sudo ./run_all
 
@@ -21,14 +19,14 @@ export TASKDDATA=/var/taskd
 
 sudo mkdir -p $TASKDDATA
 
-chown $username:$username $TASKDDATA
+sudo chown $username:$username $TASKDDATA
 
 taskd init
 
 line="@reboot taskdctl start"
 (crontab -u "$username" -l; echo "$line" ) | crontab -u $username -
 
-cd ~/git/taskd/pki
+cd ~/taskd/pki
 
 ./generate
 
@@ -49,12 +47,10 @@ taskd config --force server `hostname`:53589
 taskdctl start
 #Mirakel
 
-echo -e "\033[1;32Downloading Mirakel script to add a user\033[0m"
-wget https://raw.githubusercontent.com/MirakelX/mirakel-scripts/master/add_user.sh
-chmod +x add_user.sh
+echo -e "\033[1;32mDownloading Mirakel script to add a user\033[0m"
 
-echo -e "\033[1;32From here on it is better to do things manually\033[0m"
-echo -e "\033[1;32There are some commented commands on the script as a guide\033[0m"
+echo -e "\033[1;32mFrom here on it is better to do things manually\033[0m"
+echo -e "\033[1;32mThere are some commented commands on the script as a guide\033[0m"
 #./add_user.sh
 
 #taskd add org <org_name>
