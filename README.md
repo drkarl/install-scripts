@@ -96,3 +96,7 @@ This section will be growin overtime. For now there is:
 - Tarsnap client
 
 - Duplicity
+
+- Jetty
+
+- GitBucket
