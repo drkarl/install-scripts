@@ -93,4 +93,6 @@ This section will be growin overtime. For now there is:
 
 - Taskwarrior client. The client is cloned and compiled because the version in Ubuntu repos can't use a Taskwarrior server, only works locally
 
+- Tarsnap client
 
+- Duplicity
