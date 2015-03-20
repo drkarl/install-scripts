@@ -1,8 +1,8 @@
 echo "\033[1;33m=                                     =\033[0m"
 echo "\033[1;33m=========[INSTALLING tarsnap]==========\033[0m"
 echo "\033[1;33m=                                     =\033[0m"
-wget https://www.tarsnap.com/download/tarsnap-autoconf-1.0.35.tgz
-wget https://www.tarsnap.com/download/tarsnap-sigs-1.0.35.asc
+aria2c https://www.tarsnap.com/download/tarsnap-autoconf-1.0.35.tgz
+aria2c https://www.tarsnap.com/download/tarsnap-sigs-1.0.35.asc
 
 
 echo "\033[1;33mVerify that the source code has not been tampered with\033[0m"

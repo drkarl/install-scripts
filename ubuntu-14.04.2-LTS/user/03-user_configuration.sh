@@ -38,9 +38,9 @@ echo -e "\033[1;33m=                                     =\033[0m"
 echo -e "\033[1;33m=====[Installing Powerline symbols]====\033[0m"
 echo -e "\033[1;33m=                                     =\033[0m"
 mkdir -p "$HOME/.fonts/" "$HOME/.config/fontconfig/conf.d/"
-wget -P "$HOME/.fonts/" https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
+aria2c -P "$HOME/.fonts/" https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
 sudo fc-cache -vf "$HOME/.fonts"
-wget -P "$HOME/.config/fontconfig/conf.d/" https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+aria2c -P "$HOME/.config/fontconfig/conf.d/" https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
 
 ## Get dotfiles
 echo -e "\033[1;33m=                                     =\033[0m"
