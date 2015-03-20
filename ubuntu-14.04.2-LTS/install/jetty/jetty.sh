@@ -10,9 +10,7 @@ aria2c -o jetty-distribution-$version.tar.gz -s5 "http://eclipse.org/downloads/d
 tar -xvf jetty-distribution-$version.tar.gz
  
 # rename jetty directory
-echo "AMF"
 sudo mv jetty-distribution-$version /opt/jetty
-echo "CHU"
  
 # create jetty user
 sudo useradd -U -s /bin/false jetty
@@ -40,19 +38,19 @@ sudo chmod o+w /opt/jetty/webapps
 rm -rf ~/build/jetty
  
 # check if the installation settings are ok
-/opt/jetty/bin/jetty.sh check
- 
-# Start Jetty as service
-sudo service jetty start
- 
-# Stop Jetty as service
-sudo service jetty stop
+sudo service jetty check
  
 # the server runs on the default port of 8080
 # http://localhost:8080/
 # To let Jetty automatically start on reboot execute
 sudo update-rc.d jetty defaults
 
+# Start Jetty as service
+#sudo service jetty start
+ 
+# Stop Jetty as service
+#sudo service jetty stop
+ 
 # deploy an app
 #cp myapp.war /opt/jetty/webapps
  
