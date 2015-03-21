@@ -1,6 +1,6 @@
 
 
-read -p "Enter organization name" organization
+read -p "Enter organization name: " organization
 
 mkdir $organization
 
