@@ -1,3 +1,4 @@
+#Requires Java
 # create download directories
 mkdir -p ~/build/jetty
 cd ~/build/jetty

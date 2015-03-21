@@ -1,3 +1,5 @@
+#Requires Java
+#Requires an application server, Tomcat, Jetty, Glassfish, etc
 echo "\033[1;33m=                                     =\033[0m"
 echo "\033[1;33m=========[INSTALLING GitBucket]========\033[0m"
 echo "\033[1;33m=                                     =\033[0m"
