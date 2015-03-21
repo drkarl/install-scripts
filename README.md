@@ -97,6 +97,14 @@ This section will be growin overtime. For now there is:
 
 - Duplicity
 
+- Attic
+
 - Jetty
 
 - GitBucket
+
+- MariaDB
+
+- Jenkins
+
+- Seafile
