@@ -1,4 +1,4 @@
-
+#Can work with SQLite, but would be better if you install MySQL/MariaDB before and use it instead
 
 read -p "Enter organization name: " organization
 
@@ -6,14 +6,15 @@ mkdir $organization
 
 
 cd $organization
-mkdir installed
-mv seafile-server_*.tgz installed
 
 version=4.0.6
 aria2c "https://bitbucket.org/haiwen/seafile/downloads/seafile-server_${version}_x86-64.tar.gz"
 
 # after moving seafile-server_* to this directory
 tar -xzf seafile-server_*
+
+mkdir installed
+mv seafile-server_*.tar.gz installed
 
 # Install prerequisites
 apt-fast update
