@@ -108,3 +108,7 @@ This section will be growin overtime. For now there is:
 - Jenkins
 
 - Seafile
+
+- Wemux
+
+- Subrosa
