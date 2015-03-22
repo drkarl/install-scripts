@@ -1,12 +1,13 @@
 # Post installation scripts for ubuntu
 
-- Execute first `ubuntu-14.04.2-LTS/root/00-run_all.sh` as root.
-The last part will add a user with sudo rights with the username you provide.
+To get started just
 
-- Logout and login as the newly created user.
-
-- Then, execute `ubuntu-14.04.2-LTS/user/00-run_all.sh` 
-
+```
+apt-get install git
+git clone https://github.com/drkarl/install-scripts.git
+cd install-scripts/ubuntu-14.04.2-LTS/root
+./00-run_all.sh
+```
 - Finally, logout and login again with that user, and execute `ubuntu-14.04.2-LTS/user/05-ruby-tmuxinator.sh`.
 
 - Optionally there are some installation scripts for some other applications which will be added over time.
