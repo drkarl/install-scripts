@@ -11,6 +11,8 @@ apt-get install -y git && git clone https://github.com/drkarl/install-scripts.gi
 
 - Optionally there are some installation scripts for some other applications which will be added over time.
 
+**Remember** that ufw will be installed blocking everything except ssh by default, so if you install anything which listens for connections remember to allow that port on ufw
+
 ## What does it contain?
 
 ## **root** scripts
