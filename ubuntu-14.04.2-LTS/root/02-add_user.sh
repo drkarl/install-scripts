@@ -36,3 +36,6 @@ cp -R /root/install-scripts "/home/${username}/"
 cp -R /root/apt-fast "/home/${username}/" 
 chown -R $username:$username "/home/${username}/" 
 echo -e "\033[1;32mUser ${username} created, added to sudoers and keys setup\033[0m"
+
+echo -e "\033[1;33mExecuting configuration script for user $ {username}\033[0m"
+su $username -c "../user/00-run_all.sh"
