@@ -3,7 +3,7 @@
 To get started just
 
 ```
-apt-get install git && git clone https://github.com/drkarl/install-scripts.git && cd install-scripts/ubuntu-14.04.2-LTS/root
+apt-get install -y git && git clone https://github.com/drkarl/install-scripts.git && cd install-scripts/ubuntu-14.04.2-LTS/root
 ./00-run_all.sh
 ```
 - Finally, logout and login again with that user, and execute `ubuntu-14.04.2-LTS/user/05-ruby-tmuxinator.sh`.
