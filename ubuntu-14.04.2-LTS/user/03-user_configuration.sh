@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "\033[1;33m===================================\033[0m"
-echo -e "\033[1;33m==========[USER SPECIFIC]==========\033[0m"
-echo -e "\033[1;33m===================================\033[0m"
+echo "\033[1;33m===================================\033[0m"
+echo "\033[1;33m==========[USER SPECIFIC]==========\033[0m"
+echo "\033[1;33m===================================\033[0m"
 
 read -p "Enter the name of the github user to clone the dotfiles from: " github_user
 
@@ -12,10 +12,9 @@ sudo update-alternatives --set editor /usr/bin/vim.basic
 ##
 ## ZSH
 ##
-echo -e "\033[1;33m=                                 =\033[0m"
-echo -e "\033[1;33m=========[INSTALLING zsh]==========\033[0m"
-echo -e "\033[1;33m=                                 =\033[0m"
-sudo apt-get install -y zsh
+echo "\033[1;33m=                                 =\033[0m"
+echo "\033[1;33m=========[INSTALLING zsh]==========\033[0m"
+echo "\033[1;33m=                                 =\033[0m"
 sudo usermod -s /bin/zsh "$(whoami)"
 ##apt-fast completions for zsh
 sudo cp ~/apt-fast/completions/zsh/_apt-fast /usr/share/zsh/functions/Completion/Debian/
@@ -23,9 +22,9 @@ sudo chown root:root /usr/share/zsh/functions/Completion/Debian/_apt-fast
 source /usr/share/zsh/functions/Completion/Debian/_apt-fast
 
 ##Setup Prezto
-echo -e "\033[1;33m=                                     =\033[0m"
-echo -e "\033[1;33m==========[INSTALLING Prezto]==========\033[0m"
-echo -e "\033[1;33m=                                     =\033[0m"
+echo "\033[1;33m=                                     =\033[0m"
+echo "\033[1;33m==========[INSTALLING Prezto]==========\033[0m"
+echo "\033[1;33m=                                     =\033[0m"
 git clone --recursive https://github.com/ravishi/prezto.git "$HOME/.zprezto"
 
 shopt -s extglob
@@ -34,18 +33,18 @@ for rcfile in $HOME/.zprezto/runcoms/!(README.md); do
 done
 
 # powerline fancy symbols
-echo -e "\033[1;33m=                                     =\033[0m"
-echo -e "\033[1;33m=====[Installing Powerline symbols]====\033[0m"
-echo -e "\033[1;33m=                                     =\033[0m"
+echo "\033[1;33m=                                     =\033[0m"
+echo "\033[1;33m=====[Installing Powerline symbols]====\033[0m"
+echo "\033[1;33m=                                     =\033[0m"
 mkdir -p "$HOME/.fonts/" "$HOME/.config/fontconfig/conf.d/"
 aria2c -s5 -P "$HOME/.fonts/" https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
 sudo fc-cache -vf "$HOME/.fonts"
 aria2c -s5 -P "$HOME/.config/fontconfig/conf.d/" https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
 
 ## Get dotfiles
-echo -e "\033[1;33m=                                     =\033[0m"
-echo -e "\033[1;33m=========[Retrieving dotfiles]=========\033[0m"
-echo -e "\033[1;33m=                                     =\033[0m"
+echo "\033[1;33m=                                     =\033[0m"
+echo "\033[1;33m=========[Retrieving dotfiles]=========\033[0m"
+echo "\033[1;33m=                                     =\033[0m"
 # Create a tmp folder with random name
 dotfiles_path="`(mktemp -d)`"
  
@@ -67,13 +66,5 @@ ln -s "$HOME/.vim/vimrc" "$HOME/.vimrc"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 tmux source-file ~/.tmux.conf
-
-echo -e "\033[1;33m=                                     =\033[0m"
-echo -e "\033[1;33m============[Installing RVM]===========\033[0m"
-echo -e "\033[1;33m=                                     =\033[0m"
-sudo apt-add-repository -y ppa:rael-gc/rvm
-sudo apt-fast update
-sudo apt-fast install rvm
-echo -e "\031[1;32mYou need to logout and login again to install ruby!!\033[0m"
 
 echo -e "\033[1;32mUser configuration complete!!\033[0m"
