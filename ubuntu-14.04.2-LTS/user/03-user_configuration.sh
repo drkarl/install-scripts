@@ -19,7 +19,6 @@ sudo usermod -s /bin/zsh "$(whoami)"
 ##apt-fast completions for zsh
 sudo cp ~/apt-fast/completions/zsh/_apt-fast /usr/share/zsh/functions/Completion/Debian/
 sudo chown root:root /usr/share/zsh/functions/Completion/Debian/_apt-fast
-echo "source /usr/share/zsh/functions/Completion/Debian/_apt-fast" >> ~/.zshrc
 
 ##Setup Prezto
 echo -e "\033[1;33m=                                     =\033[0m"
