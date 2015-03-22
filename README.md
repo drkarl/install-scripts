@@ -76,14 +76,6 @@ The user scripts
 
 - Clones the Tmux plugin manager. Remember to use prefix + I on tmux to install the plugins defined on your .tmux.conf
 
-- Installs RVM. Requires user logout and login again.
-
-Once the user has logged out and in again it can execute another cript to:
-
-- Install Ruby
-
-- Install [Tmuxinator](https://github.com/tmuxinator/tmuxinator)
-
 ## Optional installation scripts
 
 This section will be growin overtime. For now there is:

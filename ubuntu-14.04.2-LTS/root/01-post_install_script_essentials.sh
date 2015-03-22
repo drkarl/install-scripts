@@ -181,16 +181,6 @@ echo "\033[1;33m============[CLEANUP]============\033[0m"
 echo "\033[1;33m=                               =\033[0m"
 sudo apt-get autoremove -y
 
-echo -e "\033[1;33m=                                     =\033[0m"
-echo -e "\033[1;33m============[Installing Ruby]==========\033[0m"
-echo -e "\033[1;33m=                                     =\033[0m"
-sudo rvm install ruby
-
-echo -e "\033[1;33m=                                     =\033[0m"
-echo -e "\033[1;33m=========[Installing Tmuxinator]=======\033[0m"
-echo -e "\033[1;33m=                                     =\033[0m"
-sudo gem install tmuxinator
-
 cd $currentdir
 
 echo "\033[1;32mPost-installation script complete!!\033[0m"
