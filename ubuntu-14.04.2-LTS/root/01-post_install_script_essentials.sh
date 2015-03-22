@@ -5,13 +5,13 @@
 
 currentdir=`pwd`
 
-echo "\033[1;32mStarting post-installation script\033[0m"
+echo -e "\033[1;32mStarting post-installation script\033[0m"
 ##
 ##etc-keeper
 ##
-echo "\033[1;33m=                                     =\033[0m"
-echo "\033[1;33m=========[INSTALLING etckeeper]=========\033[0m"
-echo "\033[1;33m=                                     =\033[0m"
+echo -e "\033[1;33m=                                     =\033[0m"
+echo -e "\033[1;33m=========[INSTALLING etckeeper]========\033[0m"
+echo -e "\033[1;33m=                                     =\033[0m"
 sudo apt-get install -y git make
 # We don't use apt-get install etckeeper because defaults to bazaar
 # Version in github defaults to git
@@ -27,9 +27,9 @@ rm -rf etckeeper
 ##apt-fast
 ##
 ## From now on, all other scripts assume apt-fast is installed
-echo "\033[1;33m=                                     =\033[0m"
-echo "\033[1;33m=========[INSTALLING apt-fast]=========\033[0m"
-echo "\033[1;33m=                                     =\033[0m"
+echo -e "\033[1;33m=                                     =\033[0m"
+echo -e "\033[1;33m=========[INSTALLING apt-fast]=========\033[0m"
+echo -e "\033[1;33m=                                     =\033[0m"
 sudo apt-get install -y aria2
 cd ~
 git clone https://github.com/ilikenwf/apt-fast.git 
@@ -57,64 +57,64 @@ sudo apt-add-repository -y ppa:rael-gc/rvm
 ##
 #Update repos and upgrade software and dist-upgrade
 ##
-echo "\033[1;33m=                                 =\033[0m"
-echo "\033[1;33m=======[Update and Upgrade]========\033[0m"
-echo "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=======[Update and Upgrade]========\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-fast update -y && sudo apt-fast dist-upgrade -y
 
 ##
 ##Essentials
 ##
-echo "\033[1;33m=                                 =\033[0m"
-echo "\033[1;33m======[INSTALLING essentials]======\033[0m"
-echo "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m======[INSTALLING essentials]======\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-fast install -y build-essential cmake python-dev fontconfig fonts-inconsolata unzip p7zip-full ack-grep htop molly-guard iotop iftop gawk
 
 ##
 ##Tmux
 ##
-echo "\033[1;33m=                                 =\033[0m"
-echo "\033[1;33m=========[INSTALLING Tmux]=========\033[0m"
-echo "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=========[INSTALLING Tmux]=========\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-fast install -y python-software-properties software-properties-common
 sudo apt-fast install -y tmux=1.9a-1~ppa1~t
 
 ##
 ##Install NodeJS
 ##
-echo "\033[1;33m=                                 =\033[0m"
-echo "\033[1;33m========[INSTALLING NodeJS]========\033[0m"
-echo "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m========[INSTALLING NodeJS]========\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-fast install -y nodejs
 
 ## 
 ## Setup VIM
 ##
-echo "\033[1;33m=                                 =\033[0m"
-echo "\033[1;33m==========[INSTALLING Vim]=========\033[0m"
-echo "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m==========[INSTALLING Vim]=========\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-fast install -y vim
 sudo update-alternatives --set editor /usr/bin/vim.basic
 
 # Better font rendering (aka Infinality)
 # source: http://www.webupd8.org/2013/06/better-font-rendering-in-linux-with.html
-echo "\033[1;33m=                                 =\033[0m"
-echo "\033[1;33m======[INSTALLING Infinality]======\033[0m"
-echo "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m======[INSTALLING Infinality]======\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-fast install -y fontconfig-infinality
 
 # Turn off apport
-echo "\033[1;33m=                                 =\033[0m"
-echo "\033[1;33m=========[DISABLING apport]========\033[0m"
-echo "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=========[DISABLING apport]========\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo su -c 'echo "enabled=0" > /etc/default/apport'
 
 ##
 ## Create and enable swap file
 ##
-echo "\033[1;33m=                                   =\033[0m"
-echo "\033[1;33m====[Creating/enabling SWAP file]====\033[0m"
-echo "\033[1;33m=                                   =\033[0m"
+echo -e "\033[1;33m=                                   =\033[0m"
+echo -e "\033[1;33m====[Creating/enabling SWAP file]====\033[0m"
+echo -e "3[1;33m=                                   =\033[0m"
 sudo fallocate -l 4G /swapfile
 sudo chown root:root /swapfile 
 sudo chmod 600 /swapfile
@@ -127,18 +127,18 @@ echo vm.swappiness = 10 | sudo tee -a /etc/sysctl.conf
 ##
 ##Install nginx
 ##
-echo "\033[1;33m=                                 =\033[0m"
-echo "\033[1;33m=========[INSTALLING nginx]========\033[0m"
-echo "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=========[INSTALLING nginx]========\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-fast install -y nginx
 sudo service nginx stop
 
 ##
 ##UFW
 ##
-echo "\033[1;33m=                                =\033[0m"
-echo "\033[1;33m=========[INSTALLING ufw]=========\033[0m"
-echo "\033[1;33m=                                =\033[0m"
+echo -e "\033[1;33m=                                =\033[0m"
+echo -e "\033[1;33m=========[INSTALLING ufw]=========\033[0m"
+echo -e "\033[1;33m=                                =\033[0m"
 sudo apt-fast install -y ufw
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
@@ -148,9 +148,9 @@ sudo ufw --force enable
 ##
 ##fail2ban
 ##
-echo "\033[1;33m=                                 =\033[0m"
-echo "\033[1;33m=======[INSTALLING fail2ban]=======\033[0m"
-echo "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=======[INSTALLING fail2ban]=======\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-fast install -y fail2ban
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 sudo service fail2ban restart
@@ -158,29 +158,29 @@ sudo service fail2ban restart
 ##
 ##stormssh
 ##
-echo "\033[1;33m=                                 =\033[0m"
-echo "\033[1;33m=======[INSTALLING StormSSH]=======\033[0m"
-echo "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=======[INSTALLING StormSSH]=======\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo pip install stormssh
 
-echo "\033[1;33m=                                 =\033[0m"
-echo "\033[1;33m=========[INSTALLING zsh]==========\033[0m"
-echo "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
+echo -e "\033[1;33m=========[INSTALLING zsh]==========\033[0m"
+echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-get install -y zsh
  
-echo "\033[1;33m=                                     =\033[0m"
-echo "\033[1;33m============[Installing RVM]===========\033[0m"
-echo "\033[1;33m=                                     =\033[0m"
+echo -e "\033[1;33m=                                     =\033[0m"
+echo -e "\033[1;33m============[Installing RVM]===========\033[0m"
+echo -e "\033[1;33m=                                     =\033[0m"
 sudo apt-fast install -y rvm
 
 ##
 #Cleanup
 ##
-echo "\033[1;33m=                               =\033[0m"
-echo "\033[1;33m============[CLEANUP]============\033[0m"
-echo "\033[1;33m=                               =\033[0m"
+echo -e "\033[1;33m=                               =\033[0m"
+echo -e "\033[1;33m============[CLEANUP]============\033[0m"
+echo -e "\033[1;33m=                               =\033[0m"
 sudo apt-get autoremove -y
 
 cd $currentdir
 
-echo "\033[1;32mPost-installation script complete!!\033[0m"
+echo -e "\033[1;32mPost-installation script complete!!\033[0m"

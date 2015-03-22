@@ -1,11 +1,11 @@
-echo "\033[1;33m=                                     =\033[0m"
-echo "\033[1;33m=========[INSTALLING tarsnap]==========\033[0m"
-echo "\033[1;33m=                                     =\033[0m"
+echo -e "\033[1;33m=                                     =\033[0m"
+echo -e "\033[1;33m=========[INSTALLING tarsnap]==========\033[0m"
+echo -e "\033[1;33m=                                     =\033[0m"
 aria2c -s5 https://www.tarsnap.com/download/tarsnap-autoconf-1.0.35.tgz
 aria2c -s5  https://www.tarsnap.com/download/tarsnap-sigs-1.0.35.asc
 
 
-echo "\033[1;33mVerify that the source code has not been tampered with\033[0m"
+echo -e "\033[1;33mVerify that the source code has not been tampered with\033[0m"
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 0x46B64BEB
 gpg --fingerprint 0x46B64BEB
 gpg --decrypt tarsnap-sigs-1.0.35.asc
@@ -20,4 +20,4 @@ cd ..
 rm -rf tarsnap-autoconf-1.0.35
 rm -rf tarsnap-autoconf-1.0.35.tgz
 rm -rf tarsnap-sigs-1.0.35.asc
-echo "\033[1;32mTarsnap has been installed correctly\033[0m"
+echo -e "\033[1;32mTarsnap has been installed correctly\033[0m"
