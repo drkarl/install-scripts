@@ -42,17 +42,14 @@ cd ..
 ################## 
 ##    Add PPAs   #
 ##################
-## Add Node PPA
+## Add NodeJS PPA
 sudo curl -sL https://deb.nodesource.com/setup | sudo bash -
 
-## Add TMUX PPA
+## Add Tmux PPA
 sudo add-apt-repository -y ppa:pi-rho/dev
 
 ## Add Infinality PPA
 sudo add-apt-repository -y ppa:no1wantdthisname/ppa 
-
-## Add RVM PPA
-sudo apt-add-repository -y ppa:rael-gc/rvm
 
 ##
 #Update repos and upgrade software and dist-upgrade
@@ -168,11 +165,6 @@ echo -e "\033[1;33m=========[INSTALLING zsh]==========\033[0m"
 echo -e "\033[1;33m=                                 =\033[0m"
 sudo apt-get install -y zsh
  
-echo -e "\033[1;33m=                                     =\033[0m"
-echo -e "\033[1;33m============[Installing RVM]===========\033[0m"
-echo -e "\033[1;33m=                                     =\033[0m"
-sudo apt-fast install -y rvm
-
 ##
 #Cleanup
 ##

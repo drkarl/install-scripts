@@ -5,7 +5,7 @@ To get started just
 ```
 apt-get install -y git && git clone https://github.com/drkarl/install-scripts.git && cd install-scripts/ubuntu-14.04.2-LTS/root && ./00-run_all.sh
 ```
-- Finally, logout and login again with that user, and execute `ubuntu-14.04.2-LTS/user/05-ruby-tmuxinator.sh`.
+- Then logout and login as the newly created user, and execute `install-scripts/ubuntu-14.04.2-LTS/user/00-run_all.sh`.
 
 - Optionally there are some installation scripts for some other applications which will be added over time.
 
@@ -45,6 +45,7 @@ If you don't know about tmux, it's a terminal multiplexer with awesome powers. I
 
 - dist-upgrade and autoremove.
 
+- Executes the user configuration script for the root user, so that when you need to use root you have fancy zsh shell
 
 ## User creation script
 
