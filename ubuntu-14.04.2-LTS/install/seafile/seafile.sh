@@ -30,3 +30,5 @@ ulimit -n 30000
 #To change configuration, like the port, in $organization/ccnet/ccnet.conf
 
 #To add memcached refer to http://manual.seafile.com/deploy/add_memcached.html
+
+#More info http://manual.seafile.com/
