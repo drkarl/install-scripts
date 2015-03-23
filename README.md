@@ -15,7 +15,7 @@ apt-get install -y git && git clone https://github.com/drkarl/install-scripts.gi
 ```
 - Then logout and login as the newly created user, and execute `install-scripts/ubuntu-14.04.2-LTS/user/00-run_all.sh`.
 
-- Then, if you logout and login again with that user you will be in zsh. Now you can execute `source /usr/share/zsh/functions/Completion/Debian/_apt-fast`
+- Then, if you logout and login again with that user you will be in zsh. 
 
 - Optionally there are some installation scripts for some other applications which will be added over time.
 
