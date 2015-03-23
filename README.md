@@ -1,5 +1,13 @@
 # Post installation scripts for ubuntu
 
+This script assumes that there is one or more authorized public keys on `/root/.ssh/authorized_keys`. If you use Digital Ocean, there is an option to add some public keys to your account and easily deploy your public keys to the root user to any new server you create. Otherwise you can copy the keys manually:
+
+`ssh-copy-id user@hostname.example.com`
+
+or
+
+`cat ~/.ssh/id_rsa.pub | ssh <user>@<hostname> 'umask 0077; mkdir -p .ssh; cat >> .ssh/authorized_keys && echo "Key copied"'`
+
 To get started just
 
 ```
@@ -52,8 +60,6 @@ If you don't know about tmux, it's a terminal multiplexer with awesome powers. I
 - Executes the user configuration script for the root user, so that when you need to use root you have fancy zsh shell
 
 ## User creation script
-
-This script assumes that there is one or more authorized public keys on `/root/.ssh/authorized_keys`. If you use Digital Ocean, there is an option to add some public keys to your account and easily deploy your public keys to the root user to any new server you create. Otherwise you can copy the keys manually.
 
 - This first asks for a username for the user that will be created, who will be in the admin group, so it will have sudo privileges.
 
