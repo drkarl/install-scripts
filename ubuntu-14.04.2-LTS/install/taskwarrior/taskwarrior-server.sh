@@ -45,6 +45,7 @@ taskd config --force server `/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -
 taskd config --force server `hostname`:53589
 
 taskdctl start
+sudo ufw allow 53589/tcp
 #Mirakel
 
 echo -e "\033[1;32mFrom here on it is better to do things manually\033[0m"
