@@ -47,8 +47,6 @@ taskd config --force server `hostname`:53589
 taskdctl start
 #Mirakel
 
-echo -e "\033[1;32mDownloading Mirakel script to add a user\033[0m"
-
 echo -e "\033[1;32mFrom here on it is better to do things manually\033[0m"
 echo -e "\033[1;32mThere are some commented commands on the script as a guide\033[0m"
 #./add_user.sh
