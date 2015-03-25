@@ -13,4 +13,5 @@ webapps=/opt/jetty/webapps
 
 aria2c -s5 https://github.com/takezoe/gitbucket/releases/download/3.0/gitbucket.war
 sudo mv gitbucket.war $webapps
+sudo ufw allow 8080/tpc
 echo "\033[1;32mGitbucket has been installed correctly\033[0m"
